@@ -1,5 +1,5 @@
-# Etapa 1: Compilar el proyecto
-FROM eclipse-temurin:25-jdk AS build
+# Etapa 1: Compilar con Java 26
+FROM eclipse-temurin:26-jdk AS build
 
 WORKDIR /app
 
@@ -8,8 +8,8 @@ COPY . .
 RUN chmod +x gradlew
 RUN ./gradlew bootJar --no-daemon
 
-# Etapa 2: Ejecutar Spring Boot
-FROM eclipse-temurin:25-jre
+# Etapa 2: Ejecutar con Java 26
+FROM eclipse-temurin:26-jre
 
 WORKDIR /app
 
